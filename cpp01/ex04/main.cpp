@@ -40,23 +40,25 @@ int main(int argc,char *argv[])
         return 1;
     }
     std::string content;
-    size_t idx = 0; ; //index da ocorrencia de s1 no arquivo
     //Ler o arquivo
     while (std::getline(Readfile,content))
     {
         std::cout << content << std::endl;
-        while (idx != std::string::npos)
-        {
-        idx = content.find(argv[2],content.length());
-        content.erase(idx,s1.length());
-        content.insert(idx,argv[3]);
+        size_t idx = 0; //index da ocorrencia de s1 no arquivo
+        
 
+        while ((idx = content.find(s1, idx)) != std::string::npos)
+        {
+            content.erase(idx, s1.length());
+            content.insert(idx, s2);
+            idx += s2.length();//move o indicador
         }
+        NewFile << content << std::endl;
     }
     std::cout << "------------------------" << std::endl;
-    std::cout << content << std::endl;
     std::cout << "Correu ate ao fim" << std::endl;
     Readfile.close();
+    NewFile.close();
 
     return 0;
 }
