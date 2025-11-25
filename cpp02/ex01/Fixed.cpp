@@ -11,7 +11,6 @@ Fixed::Fixed(const int value)
 {
     setRawBits(value << frac_bit);
     std::cout << "Int constructor called" << std::endl;
-    //fixed_point_value = value;
 }
 
 Fixed::Fixed(const float value)
@@ -58,6 +57,10 @@ void Fixed::setRawBits( int const raw )
     fixed_point_value = raw;
 }
 
+/// @brief Overload ao tradicional << para printar um objeto
+/// @param out std::cout vou modficar o stream para colocar data nele
+/// @param source Objeto que vai ser printado
+/// @return vai returnar a referencia ao stream assim podendo usar este operador em varias linhas seguidas
 std::ostream &operator<<(std::ostream &out, Fixed const &source)
 {
 	out << source.toFloat();
