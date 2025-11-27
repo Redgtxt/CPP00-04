@@ -1,8 +1,6 @@
 #include <iostream>
 #include <cmath>
 
-//Esqueleto das funcoes done agora so falta fazer a funcionalidade delas
-
 class Fixed
 {
 private:

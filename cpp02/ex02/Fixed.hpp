@@ -4,16 +4,30 @@
 class Fixed
 {
 private:
-    /* data */
+    static const int frac_bit = 8;
+    int fixed_point_value;
 public:
-    Fixed(/* args */);
+    Fixed();
+    Fixed(const int value);
+    Fixed(const float value);
+
+    Fixed(const Fixed &obj);
+    Fixed&operator=(const Fixed&);
+
+    int getRawBits( void ) const;
+    void setRawBits( int const raw );
+
     ~Fixed();
+
+    float toFloat(void) const;
+    int toInt(void) const;
+
+    bool operator<(Fixed const &other);
+    bool operator>(Fixed const &other);
+    bool operator>=(Fixed const &other);
+    bool operator<=(Fixed const &other);
+    bool operator==(Fixed const &other);
+    bool operator!=(Fixed const &other);
 };
 
-Fixed::Fixed(/* args */)
-{
-}
-
-Fixed::~Fixed()
-{
-}
+std::ostream &operator<<(std::ostream &out, Fixed const &source);
