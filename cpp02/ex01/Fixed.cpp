@@ -1,6 +1,5 @@
 #include "Fixed.hpp"
 
-
 Fixed::Fixed()
 {
     setRawBits(0);
@@ -18,6 +17,7 @@ Fixed::Fixed(const float value)
     setRawBits(roundf(value * float(1 << frac_bit)));
     std::cout << "Float constructor called" << std::endl;
 }
+
 Fixed::Fixed(const Fixed &obj)
 {
     std::cout << "Copy constructor called" << std::endl;
@@ -37,11 +37,17 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
+
+/// @brief 
+/// @param  
+/// @return Passa os bits para a direita removendo assim a parte decimal do numero
 int Fixed::toInt(void) const
 {
     return getRawBits() >> frac_bit;
 }
 
+/// @brief Converte o valor armazenado em formato de ponto fixo para float
+/// @return Valor float obtido através da divisão dos bits brutos por 2^frac_bit, restaurando assim o valor original com parte decimal
 float Fixed::toFloat(void) const
 {
     return float( getRawBits() / float(1 << frac_bit));
