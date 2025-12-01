@@ -67,32 +67,133 @@ std::ostream &operator<<(std::ostream &out, Fixed const &source)
 	return (out);
 }
 
-bool Fixed::operator<(Fixed const &other)
+bool Fixed::operator<(Fixed const &other) const
 {
     return this->getRawBits() < other.getRawBits();
 }
 
-bool Fixed::operator==(Fixed const &other)
+bool Fixed::operator==(Fixed const &other) const
 {
     return this->getRawBits() == other.getRawBits();
 }
 
-bool Fixed::operator>(Fixed const &other)
+bool Fixed::operator>(Fixed const &other) const
 {
     return this->getRawBits() > other.getRawBits();
 }
 
-bool Fixed::operator>=(Fixed const &other)
+bool Fixed::operator>=(Fixed const &other) const
 {
     return this->getRawBits() >= other.getRawBits();
 }
 
-bool Fixed::operator<=(Fixed const &other)
+bool Fixed::operator<=(Fixed const &other) const
 {
     return this->getRawBits() <= other.getRawBits();
 }
 
-bool Fixed::operator!=(Fixed const &other)
+bool Fixed::operator!=(Fixed const &other) const
 {
     return this->getRawBits() != other.getRawBits();
+}
+
+
+//Arithemit
+
+Fixed Fixed::operator+(const Fixed &other) const
+{
+    Fixed result;
+    result.setRawBits(this->fixed_point_value + other.fixed_point_value);
+    return result;
+}
+
+Fixed Fixed::operator-(const Fixed &other) const
+{
+    Fixed result;
+    result.setRawBits(this->fixed_point_value - other.fixed_point_value);
+    return result;
+}
+
+Fixed Fixed::operator*(const Fixed &other) const
+{
+    Fixed result;
+    result.setRawBits((this->fixed_point_value * other.fixed_point_value) >> frac_bit);//tenho de fazer isto porque se nao a escala dos bits  vai duplicar tambem ou seja em ves de ser 8 vai ser 16
+    return result;
+}
+
+
+Fixed Fixed::operator/(const Fixed &other) const
+{
+    Fixed result;
+    result.setRawBits((this->fixed_point_value << frac_bit) / other.fixed_point_value);
+    return result;
+}
+
+
+//increment/decrement
+
+// Pre-increment (++a)
+Fixed& Fixed::operator++()
+{
+    this->fixed_point_value++;
+    return *this;
+}
+
+// Post-increment (a++)
+Fixed Fixed::operator++(int)
+{
+    Fixed temp = *this;   // Guarda o valor atual
+    this->fixed_point_value++; // Incrementa
+    return temp;          // Retorna o valor antigo
+}
+
+// Pre-decrement (--a)
+Fixed& Fixed::operator--()
+{
+    this->fixed_point_value--;
+    return *this;
+}
+
+// Post-decrement (a--)
+Fixed Fixed::operator--(int)
+{
+    Fixed temp = *this;
+    this->fixed_point_value--;
+    return temp;
+}
+
+
+Fixed& Fixed::min(Fixed &num1,Fixed &num2)
+{
+    if(num1 > num2)
+        return num2;
+    else
+        return num1;
+
+}
+
+const Fixed& Fixed::min(const Fixed &num1, const Fixed &num2)
+{
+    if(num1 > num2)
+        return num2;
+    else
+        return num1;
+}
+
+Fixed& Fixed::max(Fixed &num1,Fixed &num2)
+{
+    if(num1 < num2)
+        return num1;
+    else
+        return num2;
+
+}
+
+const Fixed& Fixed::max(const Fixed &num1, const Fixed &num2)
+{
+    if(num1 < num2)
+        return num1;
+    else
+        return num2;
+
 }
