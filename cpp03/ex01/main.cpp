@@ -1,4 +1,6 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+
+/*
 
 int main()
 {
@@ -40,5 +42,16 @@ int main()
     std::cout << ">> Trying to attack while dead:" << std::endl;
     robotB.attack("Dummy");
 
+    return 0;
+}
+*/
+
+int main()
+{
+    ScavTrap r1;
+    ClapTrap *trap = &r1;
+    trap->attack("banana");
+    r1.attack("abacaxi");
+    r1.guard();
     return 0;
 }

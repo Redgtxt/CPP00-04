@@ -17,14 +17,13 @@ Zombie::~Zombie()
     std::cout << "💀 Zombie '" << name << "' has been destroyed!" << std::endl;
 }
 
-Zombie* newZombie( std::string name )
+void Zombie::setName(std::string name)
 {
-    Zombie *nZombie = new Zombie(name);
-    return nZombie;
+    this->name = name; 
 }
 
-void randomChump( std::string name )
-{
-    Zombie newZom(name);
-    newZom.announce();
+void Zombie::getName() const
+{ 
+    std::cout << name << std::endl; 
 }
+

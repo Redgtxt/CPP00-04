@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = ex00
-SRC =   main.cpp ClapTrap.cpp
+SRC =   main.cpp ClapTrap.cpp ScavTrap.cpp 
 
 OBJDIR = obj
 OBJS = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

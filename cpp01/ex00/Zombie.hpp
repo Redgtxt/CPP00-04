@@ -13,9 +13,6 @@ public:
     Zombie(std::string name);
     ~Zombie(); // Destrutor adicionado!
 
-    void setName(std::string name) { this->name = name; }
-    void getName() const { std::cout << name << std::endl; }
+    void setName(std::string name);
+    void getName() const;
 };
-
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );

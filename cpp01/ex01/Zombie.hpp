@@ -10,15 +10,10 @@ private:
 public:
     void announce();
 
-   
     Zombie(); //Default Constructor
-    Zombie(std::string name);//Construtor que cria com um nome
-    ~Zombie(); // Destrutor 
+    Zombie(std::string name);
+    ~Zombie(); // Destrutor adicionado!
 
-    void setName(std::string name) { this->name = name; }
-    void getName() const { std::cout << name << std::endl; }
+    void setName(std::string name);
+    void getName() const;
 };
-
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
-Zombie* zombieHorde(int N, std::string name);

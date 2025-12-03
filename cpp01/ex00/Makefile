@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = Zombie
-SRC = main.cpp Zombie.cpp
+SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 OBJDIR = obj
 OBJS = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

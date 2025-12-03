@@ -5,9 +5,9 @@ void Zombie::announce()
     std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-//Construtor que nao precisa de argumentos
-Zombie::Zombie() : name("unnamed")
+Zombie::Zombie()
 {
+    std::cout << "Default constructor called!" << std::endl;
 }
 
 //Construtor do zombie permite inicializar um zombie com nome
@@ -22,14 +22,13 @@ Zombie::~Zombie()
     std::cout << "💀 Zombie '" << name << "' has been destroyed!" << std::endl;
 }
 
-Zombie* newZombie( std::string name )
+void Zombie::setName(std::string name)
 {
-    Zombie *nZombie = new Zombie(name);
-    return nZombie;
+    this->name = name; 
 }
 
-void randomChump( std::string name )
-{
-    Zombie newZom(name);
-    newZom.announce();
+void Zombie::getName() const
+{ 
+    std::cout << name << std::endl; 
 }
+
