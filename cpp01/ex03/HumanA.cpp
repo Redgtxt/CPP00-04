@@ -10,5 +10,5 @@ HumanA::~HumanA()
 
 void HumanA::attack()
 {
-    std::cout << name << "" << wp_type.getType() << std::endl;
+    std::cout << name << " attacks with their " << wp_type.getType() << std::endl;
 }

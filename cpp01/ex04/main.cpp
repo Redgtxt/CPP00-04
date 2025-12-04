@@ -2,13 +2,6 @@
 #include <string>
 #include <fstream>
 
-/*
-    argv[0] - filename
-    argv[1] - string1
-    argv[2] - string2
-
-    trocar todo o que tiver string 1 pelo string2
-*/
 
 int main(int argc,char *argv[])
 {

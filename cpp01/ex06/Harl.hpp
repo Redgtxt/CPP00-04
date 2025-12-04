@@ -8,12 +8,16 @@ private:
     void info(void);
     void warning(void);
     void error(void);
-public:
+
     typedef void (Harl::*functions)();
     functions funcs[4];
 
-
-void complain(std::string level);
+    static const std::string names[4];
+public:
+    Harl();
+    ~Harl();
+    
+    void complain(std::string level);
 };
 
 
