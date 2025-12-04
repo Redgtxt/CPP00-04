@@ -15,16 +15,13 @@ int main(int argc,char *argv[])
     std::string s1 = argv[2];
     std::string s2 = argv[3];
     filenameReplace.append(".replace");
-    //Vou criar o ficheiro novo .replace
-    std::ofstream NewFile(filenameReplace.c_str());
-    if(!NewFile)
+
+    if(s1.empty())
     {
-        std::cout << "Something occur while creating replace file" << std::endl;
+        std::cout << "Search string cannot be empty" << std::endl;
         return 1;
     }
 
-    std::cout << "File Created: " << filenameReplace << std::endl;
-    
     //Vou abrir o ficheiro
     std::ifstream Readfile(argv[1]);
     if(!Readfile)
@@ -32,26 +29,35 @@ int main(int argc,char *argv[])
         std::cout << "File invalid" << std::endl;
         return 1;
     }
-    std::string content;
-    //Ler o arquivo
-    while (std::getline(Readfile,content))
+    std::ofstream NewFile(filenameReplace.c_str());
+    if(!NewFile)
     {
-        std::cout << content << std::endl;
+        std::cout << "Something occur while creating replace file" << std::endl;
+        return 1;
+    }
+    std::string line;
+    //Ler o arquivo
+    bool firstLine = true;
+    while (std::getline(Readfile, line))
+    {
+        if(!firstLine)
+            NewFile << "\n";
+        firstLine = false;
+        
         size_t idx = 0; //index da ocorrencia de s1 no arquivo
         
-
-        while ((idx = content.find(s1, idx)) != std::string::npos)
+        while ((idx = line.find(s1, idx)) != std::string::npos)
         {
-            content.erase(idx, s1.length());
-            content.insert(idx, s2);
+            line.erase(idx, s1.length());
+            line.insert(idx, s2);
             idx += s2.length();//move o indicador
         }
-        NewFile << content << std::endl;
+        NewFile << line;
     }
-    std::cout << "------------------------" << std::endl;
-    std::cout << "Correu ate ao fim" << std::endl;
+
     Readfile.close();
     NewFile.close();
 
     return 0;
 }
+
