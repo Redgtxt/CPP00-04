@@ -49,8 +49,7 @@ int main()
 int main()
 {
     ScavTrap r1;
-    ClapTrap *trap = &r1;
-    trap->attack("banana");
+    
     r1.attack("abacaxi");
     r1.guard();
     return 0;

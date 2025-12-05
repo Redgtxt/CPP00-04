@@ -3,7 +3,7 @@
 
 
 
-ScavTrap::ScavTrap(const ScavTrap &obj)
+ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap(obj)
 {
     std::cout << "Copy constructor ScavTrap called" << std::endl;
     *this = obj;
@@ -11,7 +11,7 @@ ScavTrap::ScavTrap(const ScavTrap &obj)
 
 
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+ScavTrap& ScavTrap::operator=(const ScavTrap& other) 
 {
     std::cout << "Copy assignment operator ScavTrap called" << std::endl;
 
