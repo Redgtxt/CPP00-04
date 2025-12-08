@@ -8,7 +8,7 @@ int main()
 
     std::cout << "=== ENDEREÇOS DE MEMÓRIA ===" << std::endl;
     std::cout << "Endereço de str:        " << &str << std::endl;
-    std::cout << "Endereço em stringPTR:  " << stringPTR << std::endl;   // sem &
+    std::cout << "Endereço em stringPTR:  " << stringPTR << std::endl;
     std::cout << "Endereço de stringREF:  " << &stringREF << std::endl;
     
     std::cout << "\n=== VALORES ===" << std::endl;

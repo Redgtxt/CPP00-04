@@ -10,9 +10,9 @@ private:
 public:
     void announce();
 
-    Zombie(); //Default Constructor
+    Zombie();
     Zombie(std::string name);
-    ~Zombie(); // Destrutor adicionado!
+    ~Zombie();
 
     void setName(std::string name);
     void getName() const;

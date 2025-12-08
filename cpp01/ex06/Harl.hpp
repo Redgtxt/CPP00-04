@@ -9,9 +9,8 @@ private:
     void warning(void);
     void error(void);
 
-    typedef void (Harl::*functions)();
-    functions funcs[4];
-
+    void (Harl::*funcs[4])();
+    
     static const std::string names[4];
 public:
     Harl();

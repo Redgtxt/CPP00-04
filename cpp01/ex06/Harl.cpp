@@ -4,9 +4,6 @@ const std::string Harl::names[4] = {"DEBUG","INFO","WARNING","ERROR"};
 
 Harl::Harl()
 {
-    // array &functions
-    // array levels
-    // index 
     funcs[0] =&Harl::debug;
     funcs[1] =&Harl::info;
     funcs[2] =&Harl::warning;
@@ -52,21 +49,20 @@ void Harl::complain(std::string level)
     switch (option)
     {
         case 1:
-            std::cout << "[ DEBUG ]";
+            std::cout << "[ DEBUG ] ";
             (this->*funcs[0])();     
         case 2:
-            std::cout << "[ INFO ]";
+            std::cout << "[ INFO ] ";
             (this->*funcs[1])(); 
         case 3:
-            std::cout << "[ WARNING ]";
+            std::cout << "[ WARNING ] ";
             (this->*funcs[2])(); 
         case 4:
-            std::cout << "[ ERROR ]";
+            std::cout << "[ ERROR ] ";
             (this->*funcs[3])(); 
             break;
         default:
             std::cout << "Invalid Input" << std::endl;
             break;
     }
-
 }

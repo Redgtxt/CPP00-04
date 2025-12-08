@@ -4,9 +4,6 @@ const std::string Harl::names[4] = {"DEBUG","INFO","WARNING","ERROR"};
 
 Harl::Harl()
 {
-    // array &functions
-    // array levels
-    // index 
     funcs[0] =&Harl::debug;
     funcs[1] =&Harl::info;
     funcs[2] =&Harl::warning;
