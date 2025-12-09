@@ -95,11 +95,3 @@ public:
 ### Por que ClapTrap usa `protected`?
 Para que as classes derivadas (`ScavTrap`, `FragTrap`, etc.) possam acessar diretamente os atributos sem precisar de getters/setters.
 
----
-
-## 🎓 Resumo
-
-- ✅ Use `: ClapTrap(...)` em **todos os construtores** da classe derivada
-- ✅ Herança **não duplica memória** - é um único objeto com partes
-- ✅ Use `protected` para atributos que classes derivadas precisam acessar
-- ✅ Use `private` para atributos internos que ninguém deve modificar
