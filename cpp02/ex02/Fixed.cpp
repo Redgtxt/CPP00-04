@@ -5,11 +5,12 @@ Fixed::Fixed()
     setRawBits(0);
 }
 
+//1000000
 Fixed::Fixed(const int value)
 {
     setRawBits(value << frac_bit);
 }
-
+//Vou passar o float para inteiro 
 Fixed::Fixed(const float value)
 {
     setRawBits(roundf(value * float(1 << frac_bit)));
@@ -183,17 +184,15 @@ const Fixed& Fixed::min(const Fixed &num1, const Fixed &num2)
 Fixed& Fixed::max(Fixed &num1,Fixed &num2)
 {
     if(num1 < num2)
-        return num1;
-    else
         return num2;
-
+    else
+        return num1;
 }
 
 const Fixed& Fixed::max(const Fixed &num1, const Fixed &num2)
 {
     if(num1 < num2)
-        return num1;
-    else
         return num2;
-
+    else
+        return num1;
 }

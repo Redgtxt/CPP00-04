@@ -45,13 +45,13 @@ int main( void ) {
     std::cout << "g--: " << g-- << std::endl;
     std::cout << "g: " << g << std::endl;
 
-    std::cout << "\n--- Min/Max ---" << std::endl;
-    std::cout << "max(a, b): " << Fixed::max( a, b ) << std::endl;
-    std::cout << "min(a, b): " << Fixed::min( a, b ) << std::endl;
-    
-    // Test const versions
-    std::cout << "max(const b, const c): " << Fixed::max( b, c ) << std::endl;
-    std::cout << "min(const b, const c): " << Fixed::min( b, c ) << std::endl;
 
+        std::cout << "\n--- Min/Max ---" << std::endl;
+        std::cout << "max(a, b): " << Fixed::max( a, b ) << std::endl;
+        std::cout << "min(a, b): " << Fixed::min( a, b ) << std::endl;
+        
+        // Test const versions
+        std::cout << "max(const b, const c): " << Fixed::max( b, c ) << std::endl;
+        std::cout << "min(const b, const c): " << Fixed::min( b, c ) << std::endl;
     return 0;
 }
