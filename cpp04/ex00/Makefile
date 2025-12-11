@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = ex00
-SRC =   main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRC =   main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
 
 OBJDIR = obj
 OBJS = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

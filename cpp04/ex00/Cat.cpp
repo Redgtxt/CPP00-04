@@ -22,7 +22,7 @@ void Cat::makeSound() const
     std::cout << "miau miau miau" << std::endl;
 }
 
-Cat::Cat(const Cat &obj)
+Cat::Cat(const Cat &obj) : Animal(obj)
 {
     std::cout << "Cat Copy constructor called" << std::endl;
     *this = obj;
